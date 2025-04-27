@@ -1,0 +1,48 @@
+def generate_code_for_fixed_expression():
+    """Generate Three Address Code, Quadruples, and Triples for expression: a = (b + c) * (d - e)"""
+    # For fixed expression a = (b + c) * (d - e)
+    
+    # Three Address Code
+    tac = [
+        "t1 = b + c",
+        "t2 = d - e",
+        "t3 = t1 * t2",
+        "a = t3"
+    ]
+    
+    # Quadruples (op, arg1, arg2, result)
+    quads = [
+        ("+", "b", "c", "t1"),
+        ("-", "d", "e", "t2"),
+        ("*", "t1", "t2", "t3"),
+        ("=", "t3", "", "a")
+    ]
+    
+    # Triples (op, arg1, arg2)
+    triples = [
+        ("+", "b", "c"),
+        ("-", "d", "e"),
+        ("*", "t1", "t2"),
+        ("=", "t3", "")
+    ]
+    
+    return tac, quads, triples
+
+# Get the code for the fixed expression
+tac, quads, triples = generate_code_for_fixed_expression()
+
+# Display results
+print("Expression: a = (b + c) * (d - e)")
+print("\n--- Three Address Code ---")
+for line in tac:
+    print(line)
+
+print("\n--- Quadruples ---")
+print("Op\tArg1\tArg2\tResult")
+for q in quads:
+    print(f"{q[0]}\t{q[1]}\t{q[2]}\t{q[3]}")
+
+print("\n--- Triples ---")
+print("Index\tOp\tArg1\tArg2")
+for i, t in enumerate(triples):
+    print(f"{i}\t{t[0]}\t{t[1]}\t{t[2]}")
