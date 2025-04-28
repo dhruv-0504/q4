@@ -13,25 +13,25 @@
 
 %%
 "while"|"if"|"for"|"else"|"do"|"return"|"int"|"float"|"char"|"printf"{
-    keywords++
+    keywords++;
     printf("\nKeywords: ");
     ECHO;
 }
 
 [a-zA-Z][a-zA-Z0-9]*{
-    identifiers==
+    identifiers++;
     printf("\nIdentifiers: ");
     ECHO;
 }
 
 "+"|"-"|"*"|"/"|"="|"=="|"<"|">"|"&&"|"||"|"!"{
-    operator++
+    operator++;
     printf("\n Operators: ");
     ECHO;
 }
 
 [0-9]+{
-    numbers++
+    numbers++;
     printf("\nNumbers: ");
     ECHO;
 }
